@@ -8,14 +8,15 @@ import './App.scss';
 
 
 import PropTypes from 'prop-types';
-import Fab from '@material-ui/core/Fab';
-// import { Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import TopBar from './components/TopBar';
 import AddFilm from './components/AddFilm';
 import Films from './components/Films';
+import BtnModal from './components/BtnModal';
+import axios from 'axios';
 
-//const apiUrl = 'http://localhost:3000/data/filmsData.json';
+const apiUrl = 'http://localhost:3000/data/filmsData.json';
 
 
 class App extends Component {
@@ -27,6 +28,21 @@ class App extends Component {
   componentDidMount() {
     //Достаем все из localStorage
     let listFilms = [];
+    //Если localStorage пуст, то положим 4 фильма из базы
+    if ( localStorage.length === 0 ) {
+      axios.get(apiUrl)
+      .then( res => {
+        const listDdFilms = res.data.map(function (item) {
+          listFilms.push(item)
+          let itemObj = JSON.stringify(item);
+          localStorage.setItem(item.id, itemObj);
+          return listFilms;
+        });
+        return listDdFilms;
+      })
+    }
+
+    //Загрузка фильмов из базы
     Object.keys(localStorage).map((film) => {
       //film it is key for localStorage
       listFilms.push(JSON.parse(localStorage.getItem(film)));
@@ -57,25 +73,10 @@ class App extends Component {
     this.setState({
       films: films
     })
-    console.log(idForDelete);
 
     localStorage.removeItem(idForDelete);
 
-
-
-    // //Достаем все из localStorage
-    // let listFilms = [];
-    // Object.keys(localStorage).map((film) => {
-    //   //film it is key
-    //   listFilms.push(JSON.parse(localStorage.getItem(film)));
-    // });
-    // setTimeout(() => {
-    //   this.setState({ isLoading: false, films: listFilms });
-    // }, 1000); // изменил таймер на 1000, чтобы не ждать долго
-
-
   }
-
 
   render() {
     const { films, isLoading } = this.state;
@@ -85,19 +86,28 @@ class App extends Component {
         {/* Header */}
         <TopBar />
 
-        {/* Форма добавления */}
-        <AddFilm onAddFilms={this.handleAddFilms} />
-
         {/* Если данные загружаются*/}
-        {isLoading && <p>Загружаю...</p>}
+        {isLoading &&
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="films">
+                  <Typography component="p" className="text-for-info" align="center">
+                    Секунду. Идет загрузка кинофильмов...
+                  </Typography>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        }
 
         {/* Когда данные загрузились */}
         {Array.isArray(films) && !isLoading && <Films data={films} deleteFilm={this.deleteFilm} />}
 
         {/* Кнопка для добавления нового фильма*/}
-        <Fab className="btn-add-form" color="primary" aria-label="Add">
-          <i className="fas fa-plus"></i>
-        </Fab>
+        <BtnModal handleAddFilms={this.handleAddFilms} />
+
       </div>
     );
   }

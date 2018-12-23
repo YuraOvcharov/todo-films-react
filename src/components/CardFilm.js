@@ -28,7 +28,7 @@ class CardFilm extends React.Component {
                 />
                 <CardContent>
                     <Typography component="p">
-                        <i className="fas fa-star"></i> {rating}
+                        <i disabled className="fas fa-star"></i> {rating}
                     </Typography>
                     <Typography component="p">
                         Режиссёр: {director}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardFilm from './CardFilm';
+import { Typography } from '@material-ui/core';
 
 
 class Films extends React.Component {
@@ -14,10 +15,22 @@ class Films extends React.Component {
         let key = item.id;
         // let itemObj = JSON.stringify(item);
         // localStorage.setItem(key, itemObj);
-        return <CardFilm key={key} data={item} deleteFilm={deleteFilm}/>
+        return <CardFilm key={key} data={item} deleteFilm={deleteFilm} />
       })
     } else {
-      FilmsTemplate = <p>К сожалению список фильмов пуст</p>
+      FilmsTemplate = (
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="films">
+                <Typography component="p" className="text-for-info" align="center">
+                  К сожалению, список кинофильмов пуст. Вы можете добавить свои любимые фильмы, если нажмете на плюс.
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     }
 
     return FilmsTemplate

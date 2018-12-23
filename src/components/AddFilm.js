@@ -13,7 +13,7 @@ class AddFilm extends React.Component {
     onBtnClickHandler = (e) => {
         e.preventDefault();
         const { name, film_date, director, duration, rating} = this.state;
-        this.props.onAddFilms({
+        this.props.handleAddFilms({
             name,
             film_date,
             director,
