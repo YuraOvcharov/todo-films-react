@@ -12,7 +12,6 @@ body {
   background-color: rgb(227, 226, 221);
 }
 
-code {
-  // font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  //   monospace;
+textarea:focus, input:focus, button:focus, button:active{
+    outline: none !important;
 }
