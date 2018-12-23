@@ -1,5 +1,5 @@
 .btn-add-form {
-    position: absolute !important;
+    position: fixed !important;
     bottom: 0;
     right: 0;
     margin: 50px !important;
@@ -9,4 +9,27 @@
         height: 15px;
         width: 15px;
     }
+}
+
+
+
+/************** CardFilm ***************/
+.films {
+    margin-top: 40px;
+
+    .ccard { //потому что .card уже существует в bootstrap
+        margin-top: 15px;
+        padding: 15px !important;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:hover {
+            box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2), 
+                        0px 3px 3px 0px rgba(0,0,0,0.14),
+                        0px 5px 3px 1px rgba(0,0,0,0.12);
+        }
+    }
+
 }

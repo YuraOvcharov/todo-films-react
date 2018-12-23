@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-//import { CardFilm } from './CardFilm';
+import CardFilm from './CardFilm';
 
 
 class Films extends React.Component {
@@ -9,8 +9,8 @@ class Films extends React.Component {
     let FilmsTemplate = null
 
     if (data.length) {
-      FilmsTemplate = data.map(function(item) {
-        return (<p key={item.id}>{item.name}</p>)
+      FilmsTemplate = data.map(function (item) {
+        return <CardFilm key={item.id} data={item} />
       })
     } else {
       FilmsTemplate = <p>К сожалению нет фильмов</p>
@@ -18,18 +18,24 @@ class Films extends React.Component {
 
     return FilmsTemplate
   }
-  
+
   render() {
     return (
-      <div>
-        {this.renderFilms()}
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="films">
+              {this.renderFilms()}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 }
-  
+
 Films.propTypes = {
   data: PropTypes.array.isRequired,
 }
-  
+
 export default Films;
