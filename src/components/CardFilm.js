@@ -10,7 +10,7 @@ import { IconButton } from '@material-ui/core';
 
 class CardFilm extends React.Component {
     render() {
-        const { name, film_date, director, duration, rating } = this.props.data;
+        const { id, name, film_date, director, duration, rating } = this.props.data;
         let cardName = name + " (" + film_date + ")";
         let cardDuration = duration + " мин."
 
@@ -19,8 +19,8 @@ class CardFilm extends React.Component {
             <Card className="ccard">
                 <CardHeader
                     action={
-                        <IconButton>
-                            <i className="fas fa-trash-alt"></i>
+                        <IconButton onClick={() => {this.props.deleteFilm(id)}}>
+                            <i className="fas fa-trash-alt" ></i>
                         </IconButton>
                     }
                     title={cardName}
