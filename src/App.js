@@ -10,17 +10,49 @@ import './App.scss';
 import Fab from '@material-ui/core/Fab';
 // import { Button } from '@material-ui/core';
 
-import TopBar from './components/TopBar'
+import TopBar from './components/TopBar';
+//import AddFilm from './components/AddFilm';
+import Films from './components/Films';
+
 
 
 class App extends Component {
+  state = {
+    films: null,
+    isLoading: false
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: true });
+    fetch('http://localhost:3000/data/filmsData.json')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setTimeout(() => {
+          this.setState({ isLoading: false, films: data })
+        }, 1000) // изменил таймер на 1000, чтобы не ждать долго
+      })
+  }
+
   render() {
+    const { films, isLoading } = this.state;
+
     return (
       <div className="app">
+        {/* Header */}
         <TopBar />
 
+        {/* Форма добавления */}
+        {/* <AddFilm onAddFilms={this.handleAddFilms} /> */}
 
-        {/* Button for add new film */}
+        {/* Если данные загружаются*/}
+        {isLoading && <p>Загружаю...</p>}
+
+        {/* Когда данные загрузились */}
+        {Array.isArray(films) && <Films data={films} />}
+
+        {/* Кнопка для добавления нового фильма*/}
         <Fab className="btn-add-form" color="primary" aria-label="Add">
           <i className="fas fa-plus"></i>
         </Fab>
@@ -29,4 +61,14 @@ class App extends Component {
   }
 }
 
+
+// AddFilm.propTypes = {
+//   onAddFilms: PropTypes.func.isRequired
+// }
+
 export default App;
+
+
+
+
+
