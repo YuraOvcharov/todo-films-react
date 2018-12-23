@@ -2,7 +2,7 @@
     position: fixed !important;
     bottom: 0;
     right: 0;
-    margin: 50px !important;
+    margin: 30px !important;
 
     .fa-plus {
         color: #fff;
@@ -16,6 +16,7 @@
 /************** CardFilm ***************/
 .films {
     margin-top: 40px;
+    margin-bottom: 40px;
 
     .ccard { //потому что .card уже существует в bootstrap
         margin-top: 15px;

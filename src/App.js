@@ -11,7 +11,7 @@ import Fab from '@material-ui/core/Fab';
 // import { Button } from '@material-ui/core';
 
 import TopBar from './components/TopBar';
-//import AddFilm from './components/AddFilm';
+import AddFilm from './components/AddFilm';
 import Films from './components/Films';
 
 
@@ -19,7 +19,8 @@ import Films from './components/Films';
 class App extends Component {
   state = {
     films: null,
-    isLoading: false
+    isLoading: false,
+    lengthList: 0
   }
 
   componentDidMount() {
@@ -35,6 +36,12 @@ class App extends Component {
       })
   }
 
+  handleAddFilms = data => {
+    data.id = this.state.films.length + 1;
+    const nextFilm = [data, ...this.state.films]
+    this.setState({ films: nextFilm })
+  }
+
   render() {
     const { films, isLoading } = this.state;
 
@@ -44,7 +51,7 @@ class App extends Component {
         <TopBar />
 
         {/* Форма добавления */}
-        {/* <AddFilm onAddFilms={this.handleAddFilms} /> */}
+        <AddFilm onAddFilms={this.handleAddFilms} />
 
         {/* Если данные загружаются*/}
         {isLoading && <p>Загружаю...</p>}
