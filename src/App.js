@@ -16,7 +16,7 @@ import Films from './components/Films';
 import BtnModal from './components/BtnModal';
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:3000/data/filmsData.json';
+const apiUrl = './data/filmsData.json';
 
 
 class App extends Component {
