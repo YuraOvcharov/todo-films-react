@@ -2,6 +2,10 @@
   "name": "todo-films",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.11.4",
+    "npm": "6.5.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
@@ -14,7 +18,7 @@
     "react-material-ui-form-validator": "^2.0.3",
     "react-scripts": "2.1.1",
     "react-validation": "^3.0.7",
-    "reactstrap": "^6.5.0"
+    "reactstrap": "^6.5.0",
   },
   "scripts": {
     "start": "react-scripts start",
