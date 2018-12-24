@@ -26,26 +26,27 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //Достаем все из localStorage
     let listFilms = [];
     //Если localStorage пуст, то положим 4 фильма из базы
     if ( localStorage.length === 0 ) {
       axios.get(apiUrl)
-      .then( res => {
+        .then( res => {
         const listDdFilms = res.data.map(function (item) {
-          listFilms.push(item)
+          listFilms.unshift(item)
           let itemObj = JSON.stringify(item);
           localStorage.setItem(item.id, itemObj);
           return listFilms;
         });
         return listDdFilms;
       })
-    }
+    } 
 
-    //Загрузка фильмов из базы
+    //Достаем все из localStorage
+    //Пройдемся по всем ключам, которые находятся в localStorage
     Object.keys(localStorage).map((film) => {
-      //film it is key for localStorage
-      listFilms.push(JSON.parse(localStorage.getItem(film)));
+      //film это ключ из localStorage 
+      //кладем object в listFilms
+      listFilms.unshift(JSON.parse(localStorage.getItem(film)));
       return true;
     });
     setTimeout(() => {
@@ -54,16 +55,13 @@ class App extends Component {
   }
 
   handleAddFilms = data => {
-    const dateNum = new Date();
-    data.id = dateNum.getTime();
-    const nextFilm = [data, ...this.state.films]
+    // const dateNum = new Date();
+    // data.id = dateNum.getTime();
+    const nextFilm = [data, ...this.state.films];
     this.setState({ films: nextFilm });
-
 
     let dataObj = JSON.stringify(data);
     localStorage.setItem(data.id, dataObj);
-
-    //axios.pop in local Storage
   }
 
   deleteFilm = idForDelete => {

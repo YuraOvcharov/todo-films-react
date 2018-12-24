@@ -5,6 +5,7 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button, F
 
 class BtnModal extends Component {
     state = {
+        id: 0,
         name: '',
         nameError: false,
         film_date: '',
@@ -22,7 +23,9 @@ class BtnModal extends Component {
     onBtnClickHandler = (e) => {
         e.preventDefault();
         const { name, film_date, director, duration, rating } = this.state;
+        const dateNum = new Date();        
         this.props.handleAddFilms({
+            id: dateNum.getTime(),
             name,
             film_date,
             director,
