@@ -2,6 +2,8 @@
 
 https://reacttodofilms.herokuapp.com/
 
+К сожалению нужен VPN
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
