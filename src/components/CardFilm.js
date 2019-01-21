@@ -12,7 +12,7 @@ class CardFilm extends React.Component {
     render() {
         const { id, name, film_date, director, duration, rating } = this.props.data;
         let cardName = name + " (" + film_date + ")";
-        let cardDuration = duration + " мин."
+        let cardDuration = duration + " min."
 
 
         return (
@@ -31,7 +31,7 @@ class CardFilm extends React.Component {
                         <i disabled className="fas fa-star"></i> {rating}
                     </Typography>
                     <Typography component="p">
-                        Режиссёр: {director}
+                        Director: {director}
                     </Typography>
                 </CardContent>
             </Card>

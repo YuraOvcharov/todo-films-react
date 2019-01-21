@@ -129,66 +129,65 @@ class BtnModal extends Component {
                     onClose={this.handleClose}
                     aria-labelledby="responsive-dialog-title"
                 >
-                    <DialogTitle id="responsive-dialog-title">Форма добавления фильма</DialogTitle>
+                    <DialogTitle id="responsive-dialog-title">Form for add film</DialogTitle>
                     <DialogContent>
                         <TextField
                             autoFocus
                             margin="dense"
                             id='name'
-                            label="Название фильма"
+                            label="Name of films"
                             type="text"
                             fullWidth
                             //onChange={this.handleChange}
                             onBlur={this.handleBlur}
                             error={this.state.nameError}
-                            helperText={this.state.nameError ? "Название должно быть от 1 до 40 символов" : ""}
+                            helperText={this.state.nameError ? "The name must be between 1 and 40 characters" : ""}
                         />
                         <TextField
                             margin="dense"
                             id='film_date'
-                            label="Год выпуска"
+                            label="Year of the film"
                             type="number"
                             fullWidth
                             onBlur={this.handleBlur}
-                            //onChange={this.handleChange}
                             error={this.state.film_dateError}
-                            helperText={this.state.film_dateError ? "Год должен быть от 1800 до 2018" : ""}
+                            helperText={this.state.film_dateError ? "The year must be between 1800 and 2018" : ""}
                         />
                         <TextField
                             margin="dense"
                             id='director'
-                            label="ФИО режиссера"
+                            label="Direction"
                             type="text"
                             fullWidth
                             onBlur={this.handleBlur}
                             //onChange={this.handleChange}
                             error={this.state.directorError}
-                            helperText={this.state.directorError ? "ФИО от 3 до 40 символов" : ""}
+                            helperText={this.state.directorError ? "Name from 3 to 40 characters" : ""}
 
                         />
                         <TextField
                             margin='dense'
                             id="duration"
-                            label="Продолжительность (в минутах)"
+                            label="Duration (in minute)"
                             type="number"
                             fullWidth
                             onBlur={this.handleBlur}
                             //onChange={this.handleChange}
                             error={this.state.durationError}
-                            helperText={this.state.durationError ? "Продолжительность от 1 до 300" : ""}
+                            helperText={this.state.durationError ? "Duration from 1 to 300" : ""}
                         
 
                         />
                         <TextField
                             margin='dense'
                             id="rating"
-                            label="Рейтинг от 0 до 10"
+                            label="Rating from 0 to 10"
                             type="number"
                             fullWidth
                             onBlur={this.handleBlur}
                             //onChange={this.handleChange}
                             error={this.state.ratingError}
-                            helperText={this.state.ratingError ? "Нужно ввести число от 0 до 10" : ""}
+                            helperText={this.state.ratingError ? "You must enter a number between 0 and 10" : ""}
                         />
                         <FormControlLabel
                             id="checkboxAddFilm"
@@ -198,15 +197,15 @@ class BtnModal extends Component {
                                     onChange={this.handleCheckboxChange}
                                 />
                             }
-                            label="Я подтверждаю, что знаю этот фильм"
+                            label="I confirm that I know this film"
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
-                            Выход
+                            Exit
                         </Button>
                         <Button disabled={!this.validate()} onClick={this.onBtnClickHandler} color="primary">
-                            Добавить фильм
+                            Add film
                         </Button>
                     </DialogActions>
                 </Dialog>

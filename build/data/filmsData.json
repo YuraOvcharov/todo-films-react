@@ -1,33 +1,33 @@
 [
     {
         "id": 1245632125591,
-        "name": "Пышка",
+        "name": "Bird Box",
         "film_date": "2018",
-        "director": "Анна Флетчер",
-        "duration": "110",
+        "director": "Susanne Bier",
+        "duration": "124",
         "rating": "7"
     },
     {
         "id": 1245632125592,
-        "name": "Маугли: Легенда джунглей",
+        "name": "You ",
         "film_date": "2018",
-        "director": "Энди Серкис",
-        "duration": "104",
-        "rating": "7"
+        "director": "Greg Berlanti, Sera Gamble",
+        "duration": "60",
+        "rating": "8"
     },
     {
         "id": 1245632125593,
-        "name": "Человек паук: Через Вселенные",
+        "name": "Spider-Man: Into the Spider-Verse",
         "film_date": "2018",
-        "director": "Боб Персичетти",
+        "director": "Bob Persichetti",
         "duration": "117",
         "rating": "9"
     },
     {
         "id": 1245632125594,
-        "name": "Аквамен",
+        "name": "Aquaman ",
         "film_date": "2018",
-        "director": "Джеймс Вон",
+        "director": "James Wan",
         "duration": "143",
         "rating": "8"
     }

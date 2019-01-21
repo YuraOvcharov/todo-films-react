@@ -18,7 +18,6 @@ import axios from 'axios';
 
 const apiUrl = './data/filmsData.json';
 
-
 class App extends Component {
   state = {
     films: [],
@@ -28,18 +27,18 @@ class App extends Component {
   componentDidMount() {
     let listFilms = [];
     //Если localStorage пуст, то положим 4 фильма из базы
-    if ( localStorage.length === 0 ) {
+    if (localStorage.length === 0) {
       axios.get(apiUrl)
-        .then( res => {
-        const listDdFilms = res.data.map(function (item) {
-          listFilms.unshift(item)
-          let itemObj = JSON.stringify(item);
-          localStorage.setItem(item.id, itemObj);
-          return listFilms;
-        });
-        return listDdFilms;
-      })
-    } 
+        .then(res => {
+          const listDdFilms = res.data.map(function (item) {
+            listFilms.unshift(item)
+            let itemObj = JSON.stringify(item);
+            localStorage.setItem(item.id, itemObj);
+            return listFilms;
+          });
+          return listDdFilms;
+        })
+    }
 
     //Достаем все из localStorage
     //Пройдемся по всем ключам, которые находятся в localStorage
@@ -91,7 +90,7 @@ class App extends Component {
               <div className="col-12">
                 <div className="films">
                   <Typography component="p" className="text-for-info" align="center">
-                    Секунду. Идет загрузка кинофильмов...
+                    Wait a minute. List of films are loading...
                   </Typography>
                 </div>
               </div>

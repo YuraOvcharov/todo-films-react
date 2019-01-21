@@ -15,7 +15,7 @@ class Films extends React.Component {
         let key = item.id;
         // let itemObj = JSON.stringify(item);
         // localStorage.setItem(key, itemObj);
-        return <CardFilm key={key} data={item} deleteFilm={deleteFilm} />
+        return <CardFilm key={key} data={item} deleteFilm={deleteFilm} /> //key можно убрать? думаю, что да, потому что в item есть id из базы данных (локалхоста)
       })
     } else {
       FilmsTemplate = (
@@ -24,7 +24,7 @@ class Films extends React.Component {
             <div className="col-12">
               <div className="films">
                 <Typography component="p" className="text-for-info" align="center">
-                  К сожалению, список кинофильмов пуст. Вы можете добавить свои любимые фильмы, если нажмете на плюс.
+                  Sorry, but list of films is empty. You can add your lovely films, if you press plus
                 </Typography>
               </div>
             </div>

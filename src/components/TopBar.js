@@ -9,7 +9,7 @@ const TopBar = () => {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="h6" color="inherit">
-            Список кинофильмов
+            List of films
           </Typography>
         </Toolbar>
       </AppBar>
